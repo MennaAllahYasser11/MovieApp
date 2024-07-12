@@ -1,0 +1,140 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  .navbar{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .searchbtn{
+    margin-right: 30rem;
+  }
+
+ input[type="text"] {
+    padding: 0.4rem;
+    border-radius:0.3rem;
+    width: 300px;
+    margin-left: 20rem;
+  }
+.movie-card {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    justify-content: center;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+
+  }
+  
+  .movie-card .card-body {
+    height: 200px;
+    overflow: hidden;
+    justify-content: center;
+  }
+  
+  .movie-card .card-body h5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 800;
+    text-align:center ;
+
+
+}
+  
+  .movie-card .card-body p {
+    overflow: hidden;
+    max-height: 4rem;
+    text-align:center ;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1020;
+  }
+  
+  .footer a {
+    text-decoration: none;
+  }
+  
+/*BTNdetails for card button */
+  .BTNdetails{  
+  display: block;
+  margin: auto;
+  background-color: teal;
+  border-radius: 0.5rem;
+  }
+
+  .color{
+    background-color: teal;
+    color: white;
+    border-radius: 0.5rem;
+
+  }
+
+
+
+/* Responsive Navbar Styles */
+@media (max-width: 991.98px) {
+  .navbar-expand-lg  .container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  #search-input {
+    width: 200px;
+    margin-left: 1rem !important;
+  }
+
+  .searchbtn {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  #search-input {
+    width: 150px;
+    margin-left: 0.5rem !important;
+  }
+
+  .searchbtn {
+    margin-right: 0.5rem;
+    padding: 0.4rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 0.9rem;
+  }
+
+  #search-input {
+    width: 120px;
+    margin-left: 0.3rem !important;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  .searchbtn {
+    margin-right: 0.3rem;
+    padding: 0.3rem !important;
+    font-size: 0.8rem;
+  }
+}

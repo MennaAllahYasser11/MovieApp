@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="./css/details.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="movie-title"></h1>
+    <img id="movie-poster" src="" alt="Movie Poster">
+    <p id="movie-overview"></p>
+    <p id="movie-release-date"></p>
+    <p id="movie-vote-average"></p>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const API_KEY = 'fac192585bcefe69fdb0f28dd1dbdbdb';
+      const movieId = new URLSearchParams(window.location.search).get('id'); //  is used to extract the value of the id parameter from the current URL's query string.
+      
+      if (movieId) {
+        fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('movie-title').innerText = data.title;
+            const defaultImg="../img/movieIMG.jpg";
+            if (data.poster_path) {
+              document.getElementById('movie-poster').src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+            } else {
+              document.getElementById('movie-poster').src = defaultImg;
+            }
+            document.getElementById('movie-overview').innerText = data.overview;
+            document.getElementById('movie-release-date').innerText =`Release : ${data.release_date} `;
+            document.getElementById('movie-vote-average').innerText = `Rating: ${data.vote_average}`;
+          })
+          .catch(error => {
+            console.error('Error fetching movie details:', error);
+          });
+      } else {
+        console.error('No movie ID found in URL.');
+      }
+    });
+  </script>
+</body>
+</html>
