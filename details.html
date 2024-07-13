@@ -25,7 +25,7 @@
           .then(response => response.json())
           .then(data => {
             document.getElementById('movie-title').innerText = data.title;
-            const defaultImg="../img/movieIMG.jpg";
+            const defaultImg="./img/movieIMG.jpg";
             if (data.poster_path) {
               document.getElementById('movie-poster').src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
             } else {
